@@ -17,7 +17,7 @@ class PostTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('tag');
+            $table->string('tags');
             $table->string('content');
 
         });
