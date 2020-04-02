@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <a href="/posts">Visa alla Posts</a>
+        <a href="/posts/create">Lägg till Post</a>
+    </nav> 
     @yield('content')
 </body>
 </html>
