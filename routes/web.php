@@ -34,12 +34,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/posts', 'CommentController@store');
 // Route::get('/posts/{id}', 'CommentController@show');
 
-Route::get('/subjects', 'SubjectController@index');
-Route::get('/subjects/createsubj', 'SubjectController@create');
-Route::post('/subjects', 'SubjectController@store');
-Route::get('welcome', 'SubjectController@show');
-Route::delete('/subjects/{id}', 'SubjectController@destroy');
-Route::get('/subjects/editsubj/{id}', 'SubjectController@edit');
-Route::post('/subjects/{id}', 'SubjectController@update');
+// Route::get('/subjects', 'SubjectController@index');
+// Route::get('/subjects/createsubj', 'SubjectController@create');
+// Route::post('/subjects', 'SubjectController@store');
+// Route::get('welcome', 'SubjectController@show');
+// Route::delete('/subjects/{id}', 'SubjectController@destroy');
+// Route::get('/subjects/editsubj/{id}', 'SubjectController@edit');
+// Route::post('/subjects/{id}', 'SubjectController@update');
 
-Route::get('/subjects', 'Usercontroller@index');
+//Route::get('/subjects', 'UserController@index');
+
+Route::get('/users/{id}', 'UserController@show');

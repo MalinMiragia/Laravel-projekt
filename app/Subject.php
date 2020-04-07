@@ -13,7 +13,7 @@ class Subject extends Model
 
     public function user()
         {
-            return $this->hasOne(User::class, 'subject_user_id' );
+            return $this->belongsTo(User::class);
         }
     public function post()
         {
@@ -21,6 +21,6 @@ class Subject extends Model
         }
 
         protected $fillable = [
-            'subj_title','subj_name'
+            'subject_title','subject_name'
         ];
 }

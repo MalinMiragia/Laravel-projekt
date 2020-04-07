@@ -14,13 +14,11 @@ class CreateSubjectsTable extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('subj_id');
-            $table->unsignedBigInteger('subject_user_id');
-            $table->unsignedBigInteger('post_id');
+            $table->id('id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->string('subj_title');
-            $table->string('subj_name');
+            $table->string('subject_title');
+            $table->string('subject_name');
         });
     }
 

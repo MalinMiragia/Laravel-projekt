@@ -4,16 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Subject;
 
 class UserController extends Controller
 {
     public function show($user_id) {
         $user = User::findOrFail($user_id);
 
-        var_dump($user->subject->subj_title);
-        return view('welcome',[
+        // $user->subjects = Subject::find($user_id);
+       
+        // foreach ($subjects as $subject) {
+            
+        // }
+        
+
+        //var_dump($user->subject->subject_title);
+        return view('users.show',[
             'user'=> $user,
-            'subject'=> $user->subject,
         ]);
     }
+
+    
 }

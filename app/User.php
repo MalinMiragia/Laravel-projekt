@@ -43,12 +43,8 @@ class User extends Authenticatable
     }
     public function subjects()
         {
-            return $this->hasMany(Subject::class, 'user_id');
+            return $this->hasMany(Subject::class);
         }
 
-        $subjects =App\User::find(1)->subjects;
-
-        foreach ($subjects as $subject) {
-            
-        }
+     
 }
