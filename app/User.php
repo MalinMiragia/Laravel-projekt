@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','user_name', 'email', 'password',
     ];
 
     /**
@@ -39,6 +39,16 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(Post::class); // select * from post where user_id = 1
+        return $this->hasMany(Post::class);
     }
+    public function subjects()
+        {
+            return $this->hasMany(Subject::class, 'user_id');
+        }
+
+        $subjects =App\User::find(1)->subjects;
+
+        foreach ($subjects as $subject) {
+            
+        }
 }

@@ -7,62 +7,62 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function index() {
-        $posts = Post::all();
+    // public function index() {
+    //     $posts = Post::all();
 
-        return view('posts.index', [
-            'posts' => $posts,
-        ]);
-    }
+    //     return view('posts.index', [
+    //         'posts' => $posts,
+    //     ]);
+    // }
 
-    public function show($id)  {
-        $post = Post::findOrFail($id);
+    // public function show($id)  {
+    //     $post = Post::findOrFail($id);
 
-        return view('posts.show', [
-            'post' => $post
-        ]);
-    }
+    //     return view('posts.show', [
+    //         'post' => $post
+    //     ]);
+    // }
 
-    public function create()     {
-        return view('posts.create');
-    }
+    // public function create()     {
+    //     return view('posts.create');
+    // }
 
-    public function store() {
+    // public function store() {
 
-        $post = new Post();
+    //     $post = new Post();
 
-        $post->title = request('title');
-        $post->content = request('content');
-        $post->tags = request('tags');
+    //     $post->title = request('title');
+    //     $post->content = request('content');
+        
 
-        $post->save();
+    //     $post->save();
 
-        return redirect('/posts');
-    }
+    //     return redirect('/posts');
+    // }
 
-    public function destroy($id) {
+    // public function destroy($id) {
 
-        $post = Post::findOrFail($id);
-        $post->delete();
+    //     $post = Post::findOrFail($id);
+    //     $post->delete();
 
-        return  redirect('/post')->with('msg', $post->title . ' was deleted');
-    }
+    //     return  redirect('/post')->with('msg', $post->title . ' was deleted');
+    // }
 
-    public function edit($id) {
-        $post = Post::find($id);
-        print_r($post->title);
-        return view('posts.edit')->with('post', $post);
-    }
+    // public function edit($id) {
+    //     $post = Post::find($id);
+    //     print_r($post->title);
+    //     return view('posts.edit')->with('post', $post);
+    // }
 
-    public function update($id) {
-        $post = Post::find($id);
+    // public function update($id) {
+    //     $post = Post::find($id);
 
-        $post->title = request('title');
-        $post->content = request('content');
-        $post->tags = request('tags');
+    //     $post->title = request('title');
+    //     $post->content = request('content');
+        
 
-        $post->save();
+    //     $post->save();
 
-        return redirect('posts/' . $post->id);
-    }
+    //     return redirect('posts/' . $post->id);
+    // }
 }

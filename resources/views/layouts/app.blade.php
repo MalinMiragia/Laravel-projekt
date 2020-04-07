@@ -76,5 +76,12 @@
             @yield('content')
         </main>
     </div>
+
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container">
+        <a href="/posts">Visa alla Posts</a>
+        <a href="/posts/create">Lägg till Post</a>
+        </div>
+    </nav> 
 </body>
 </html>

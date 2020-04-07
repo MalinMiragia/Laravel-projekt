@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -12,9 +12,5 @@
         <label for="content">Content</label>
         <input type="text" name="content">
 
-        <label for="tags">Tag</label>
-        <input type="text" name="tags">
-
         <input type="submit" value="Add Post">
     </form>
-</div>

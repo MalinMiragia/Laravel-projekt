@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -18,6 +18,6 @@
                 </div>
             @endif
 
-            <h1>Välkommen till vårat forum</h1>
+            
         
             <p>{{ session('msg') }}</p>

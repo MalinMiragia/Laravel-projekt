@@ -17,15 +17,10 @@ class PostTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('subj_id');                                                                                                                                           
             $table->timestamps();
             $table->string('title');
             $table->string('content');
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-
         });
         
         
