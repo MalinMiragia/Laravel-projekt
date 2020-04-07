@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Subject;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -23,6 +24,5 @@ class UserController extends Controller
             'user'=> $user,
         ]);
     }
-
-    
+     
 }

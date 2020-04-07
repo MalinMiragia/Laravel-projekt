@@ -45,3 +45,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/subjects', 'UserController@index');
 
 Route::get('/users/{id}', 'UserController@show');
+Route::get('/newpost/{id}', 'SubjectController@show');

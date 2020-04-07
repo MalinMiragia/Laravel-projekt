@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Subject;
+use App\Post;
 
 class SubjectController extends Controller
 {
@@ -15,10 +16,10 @@ class SubjectController extends Controller
         ]);
     }
 
-    public function show($id)  {
-        $subject = Subject::findOrFail($id);
+    public function show($subject_id)  {
+        $subject = Subject::findOrFail($subject_id);
 
-        return view('welcome', [
+        return view('newpost.show', [
             'subject' => $subject
         ]);
     }
@@ -31,8 +32,8 @@ class SubjectController extends Controller
 
         $subject = new Subject();
 
-        $subject->subj_title = request('subj_title');
-        $subject->subj_name = request('subj_name');
+        $subject->subj_title = request('subject_title');
+        $subject->subj_name = request('subject_name');
         
 
         $subject->save();
@@ -57,8 +58,8 @@ class SubjectController extends Controller
     public function update($id) {
         $subject = Subject::find($id);
 
-        $subject->subj_title = request('subj_title');
-        $subject->subj_name = request('subj_name');
+        $subject->subj_title = request('subject_title');
+        $subject->subj_name = request('subject_name');
         
 
         $subject->save();
