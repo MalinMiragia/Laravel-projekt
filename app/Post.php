@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function path()
-        {
-            return route('posts.show', $this);
-        }
+    // public function path()
+    //     {
+    //         return route('posts.show', $this);
+    //     }
     
     public function comments()
     {

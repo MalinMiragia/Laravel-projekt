@@ -16,7 +16,7 @@ class PostTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('user_id'); 
-            $table->unsignedBigInteger('subject_id');                                                                                                                            
+            $table->unsignedBigInteger('subject_id');                                                                                                                           
             $table->timestamps();
             $table->string('title');
             $table->string('content');

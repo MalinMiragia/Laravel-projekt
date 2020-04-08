@@ -11,8 +11,8 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><a href="/subjects/{{ $subject->id }}">{{ $subject->subj_title }}</a></h5>
-            <p class="card-text">{{ $subject->subj_name }}</p>
+            <h5 class="card-title"><a href="/subjects/{{ $subject->id }}">{{ $subject->subject_title }}</a></h5>
+            <p class="card-text">{{ $subject->subject_name }}</p>
             <p class="card-text"><small class="text-muted">{{ $subject->timestamps }}</small></p>
           </div>
         </div>

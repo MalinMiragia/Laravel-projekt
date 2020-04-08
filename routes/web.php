@@ -29,20 +29,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/posts/edit/{id}', 'PostController@edit');
 // Route::post('/posts/{id}', 'PostController@update');
 
-// Route::get('/post', 'CommentController@index');
-// Route::get('/posts/create', 'CommentController@create');
-// Route::post('/posts', 'CommentController@store');
-// Route::get('/posts/{id}', 'CommentController@show');
 
-// Route::get('/subjects', 'SubjectController@index');
-// Route::get('/subjects/createsubj', 'SubjectController@create');
-// Route::post('/subjects', 'SubjectController@store');
-// Route::get('welcome', 'SubjectController@show');
-// Route::delete('/subjects/{id}', 'SubjectController@destroy');
-// Route::get('/subjects/editsubj/{id}', 'SubjectController@edit');
-// Route::post('/subjects/{id}', 'SubjectController@update');
+Route::get('/subjects', 'SubjectController@index');
+Route::get('/subjects/createsubject', 'SubjectController@create');
+Route::post('/subjects', 'SubjectController@store');
+Route::get('/subject/{id}', 'SubjectController@show');
+Route::delete('/subjects/{id}', 'SubjectController@destroy');
+Route::get('/subjects/editsubject/{id}', 'SubjectController@edit');
+Route::post('/subjects/{id}', 'SubjectController@update');
 
 //Route::get('/subjects', 'UserController@index');
 
 Route::get('/users/{id}', 'UserController@show');
+
 Route::get('/newpost/{id}', 'SubjectController@show');

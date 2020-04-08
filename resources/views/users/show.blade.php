@@ -18,7 +18,7 @@
             <div class="card-body">
               <h4 class="card-title">{{ $subject->subject_title }}</h4>
               <p class="card-text">{{ $subject->subject_name }}</p>
-              <p class="card-text"><small class="text-muted">{{ $user->user_name }}</small></p>
+              <p class="card-text"><small class="text-muted">Created by{{ $user->user_name }}</small></p>
             </div>
           </div>
         </div>

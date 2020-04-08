@@ -8,16 +8,22 @@ class Subject extends Model
 {
     public function path()
         {
-            return route('subjects.showsubj', $this);
+            return route('subjects.showsubject', $this);
         }
 
     public function user()
         {
             return $this->belongsTo(User::class);
         }
-    public function post()
+
+    public function posts()
         {
             return $this->hasMany(Post::class);
+        }
+
+    public function tags()
+        {
+            return $this->belongsTomany(Tag::class);
         }
 
         protected $fillable = [

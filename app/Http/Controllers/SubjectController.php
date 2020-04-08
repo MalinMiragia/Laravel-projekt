@@ -5,27 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\Post;
+use APP\User;
 
 class SubjectController extends Controller
-{
+ {
     public function index() {
         $subjects = Subject::all();
 
-        return view('subjects.indexsubj', [
+        return view('subjects.indexsubject', [
             'subjects' => $subjects,
         ]);
-    }
+ }
 
     public function show($subject_id)  {
         $subject = Subject::findOrFail($subject_id);
+        // $user = User::findOrFail($user_name);
 
-        return view('newpost.show', [
-            'subject' => $subject
+        return view('subjects.showsubject', [
+            'subject'=> $subject,
+            // 'user'=> $user,
         ]);
     }
 
     public function create()     {
-        return view('subjects.createsubj');
+        return view('subjects.createsubject');
     }
 
     public function store() {
@@ -46,13 +49,13 @@ class SubjectController extends Controller
         $subject = Subject::findOrFail($id);
         $subject->delete();
 
-        return  redirect('/subjects')->with('msg', $subject->subj_title . ' was deleted');
+        return  redirect('/subjects')->with('msg', $subject->subject_title . ' was deleted');
     }
 
     public function edit($id) {
         $subject = Subject::find($id);
-        print_r($subject->subj_title);
-        return view('subjects.editsubj')->with('subject', $subject);
+        print_r($subject->subject_title);
+        return view('subjects.editsubject')->with('subject', $subject);
     }
 
     public function update($id) {
