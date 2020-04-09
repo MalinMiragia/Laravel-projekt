@@ -8,9 +8,9 @@ use App\Post;
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::all();
+        $posts = Post::latest()->get();
 
-        return view('posts.index', [
+        return view('subjects.subjectindex', [
             'posts' => $posts,
         ]);
     }
@@ -18,13 +18,13 @@ class PostController extends Controller
     public function show($id)  {
         $post = Post::findOrFail($id);
 
-        return view('posts.show', [
+        return view('subjects.subjectshow', [
             'post' => $post
         ]);
     }
 
     public function create()     {
-        return view('posts.create');
+        return view('subjects.subjectcreate');
     }
 
     public function store() {
@@ -37,7 +37,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect('/posts');
+        return redirect('/subjects');
     }
 
     public function destroy($id) {
@@ -45,13 +45,13 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->delete();
 
-        return  redirect('/post')->with('msg', $post->title . ' was deleted');
+        return  redirect('/subject')->with('msg', $post->title . ' was deleted');
     }
 
     public function edit($id) {
         $post = Post::find($id);
         print_r($post->title);
-        return view('posts.edit')->with('post', $post);
+        return view('subjects.subjectedit')->with('post', $post);
     }
 
     public function update($id) {
@@ -63,6 +63,6 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect('posts/' . $post->id);
+        return redirect('subjects/' . $post->id);
     }
 }

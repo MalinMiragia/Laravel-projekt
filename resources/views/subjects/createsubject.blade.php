@@ -9,8 +9,12 @@
     <label for="subject_title">Title</label>
     <input type="text" name="subject_title">
 
+    <label for="tag_name">Tags</label>
+    <input type="text" name="tag_name">
+
     <label for="subject_name">Content</label>
-    <input type="text" name="subject_name">
+    <textarea class="textarea" name="subject_name"></textarea>
+
 
     <input type="submit" value="Add Subject">
 </form>

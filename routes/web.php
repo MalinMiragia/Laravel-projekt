@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,24 +24,26 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/posts', 'PostController@index');
-// Route::get('/posts/create', 'PostController@create');
-// Route::post('/posts', 'PostController@store');
-// Route::get('/posts/{id}', 'PostController@show');
-// Route::delete('/posts/{id}', 'PostController@destroy');
-// Route::get('/posts/edit/{id}', 'PostController@edit');
-// Route::post('/posts/{id}', 'PostController@update');
+// Route::get('/subjects/{id}', 'PostController@create')->middleware('auth');
+// Route::post('/subjects', 'PostController@store')->middleware('auth');
+// Route::get('/subjects/{id}', 'PostController@show');
+// Route::delete('/subjects/{id}', 'PostController@destroy')->middleware('auth');
+// Route::get('/subjects/editsubject/{id}', 'PostController@edit')->middleware('auth');
+// Route::post('/subject/{id}', 'PostController@update')->middleware('auth);
+
+Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
 
 Route::get('/subjects', 'SubjectController@index');
-Route::get('/subjects/createsubject', 'SubjectController@create');
-Route::post('/subjects', 'SubjectController@store');
+Route::get('/subjects/createsubject', 'SubjectController@create')->middleware('auth');
+Route::post('/subjects', 'SubjectController@store')->middleware('auth');
 Route::get('/subject/{id}', 'SubjectController@show');
-Route::delete('/subjects/{id}', 'SubjectController@destroy');
-Route::get('/subjects/editsubject/{id}', 'SubjectController@edit');
-Route::post('/subjects/{id}', 'SubjectController@update');
+Route::delete('/subjects/{id}', 'SubjectController@destroy')->middleware('auth');
+Route::get('/subjects/editsubject/{id}', 'SubjectController@edit')->middleware('auth');
+Route::post('/subjects/{id}', 'SubjectController@update')->middleware('auth');
 
 //Route::get('/subjects', 'UserController@index');
 
 Route::get('/users/{id}', 'UserController@show');
 
-Route::get('/newpost/{id}', 'SubjectController@show');
+// Route::get('/newpost/{id}', 'SubjectController@show');

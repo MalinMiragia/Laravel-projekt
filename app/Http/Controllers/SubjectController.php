@@ -6,37 +6,46 @@ use Illuminate\Http\Request;
 use App\Subject;
 use App\Post;
 use APP\User;
+use APP\Tag;
+use Illuminate\Support\Facades\Auth;
 
 class SubjectController extends Controller
  {
     public function index() {
-        $subjects = Subject::all();
+
+        if(request('tag')) {
+            $subjects = Tag::where('name', request('tag'))->firstOrFail()->subjects;
+        }else {
+            $subjects = Subject::latest()->get();
+        }
 
         return view('subjects.indexsubject', [
             'subjects' => $subjects,
         ]);
  }
 
+
     public function show($subject_id)  {
         $subject = Subject::findOrFail($subject_id);
-        // $user = User::findOrFail($user_name);
+        
 
         return view('subjects.showsubject', [
             'subject'=> $subject,
-            // 'user'=> $user,
         ]);
     }
 
     public function create()     {
+
         return view('subjects.createsubject');
     }
 
     public function store() {
 
         $subject = new Subject();
-
-        $subject->subj_title = request('subject_title');
-        $subject->subj_name = request('subject_name');
+        $subject->user_id = Auth::user()->id;
+        $subject->subject_title = request('subject_title');
+        //tags här bara inte tillagda än
+        $subject->subject_name = request('subject_name');
         
 
         $subject->save();
@@ -61,8 +70,8 @@ class SubjectController extends Controller
     public function update($id) {
         $subject = Subject::find($id);
 
-        $subject->subj_title = request('subject_title');
-        $subject->subj_name = request('subject_name');
+        $subject->subject_title = request('subject_title');
+        $subject->subject_name = request('subject_name');
         
 
         $subject->save();

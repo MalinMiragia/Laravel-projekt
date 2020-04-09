@@ -16,7 +16,7 @@
                     @endif
 
                     You are logged in!
-                    You are a normal User.
+                    You are an Admin.
                 </div>
             </div>
         </div>

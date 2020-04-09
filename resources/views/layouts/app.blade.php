@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Home') }}
+                    ForumApp
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -85,7 +85,7 @@
                   <a class="nav-link" href="/subjects/createsubject">Create a Subject</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/subjects/indexsubject">Read all Subjects</a>
+                    <a class="nav-link" href="/subjects">Read all Subjects</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">My Subjects/Posts</a>
