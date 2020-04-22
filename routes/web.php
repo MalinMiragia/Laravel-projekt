@@ -23,13 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/posts', 'PostController@index');
-// Route::get('/subjects/{id}', 'PostController@create')->middleware('auth');
-// Route::post('/subjects', 'PostController@store')->middleware('auth');
-// Route::get('/subjects/{id}', 'PostController@show');
+Route::get('/posts', 'PostController@index');
+Route::get('/subjects/{id}', 'PostController@create')->middleware('auth');
+Route::post('/subjects', 'PostController@store')->middleware('auth');
+Route::get('/subjects/{id}', 'PostController@show');
 // Route::delete('/subjects/{id}', 'PostController@destroy')->middleware('auth');
 // Route::get('/subjects/editsubject/{id}', 'PostController@edit')->middleware('auth');
-// Route::post('/subject/{id}', 'PostController@update')->middleware('auth);
+Route::post('/subject/{id}', 'PostController@update')->middleware('auth');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
