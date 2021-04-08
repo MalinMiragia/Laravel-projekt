@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('update-subject', function (User $user, Subject $subject){
-            return $subject->user-is($user);
+            return $user->id === $subject->user_id;
         });
     }
 }

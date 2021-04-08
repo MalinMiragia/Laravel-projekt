@@ -7,24 +7,24 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function index() {
-        $posts = Post::latest()->get();
+    // public function index() {
+    //     $posts = Post::latest()->get();
 
-        return view('subjects.subjectindex', [
-            'posts' => $posts,
-        ]);
-    }
+    //     return view('subjects.subjectindex', [
+    //         'posts' => $posts,
+    //     ]);
+    // }
 
     public function show($id)  {
         $post = Post::findOrFail($id);
 
-        return view('subjects.subjectshow', [
+        return view('subjects.showsubject', [
             'post' => $post
         ]);
     }
 
     public function create()     {
-        return view('subjects.subjectcreate');
+        return view('subjects.showsubject');
     }
 
     public function store() {
@@ -40,29 +40,29 @@ class PostController extends Controller
         return redirect('/subjects');
     }
 
-    public function destroy($id) {
+    // public function destroy($id) {
 
-        $post = Post::findOrFail($id);
-        $post->delete();
+    //     $post = Post::findOrFail($id);
+    //     $post->delete();
 
-        return  redirect('/subject')->with('msg', $post->title . ' was deleted');
-    }
+    //     return  redirect('/subject')->with('msg', $post->title . ' was deleted');
+    // }
 
-    public function edit($id) {
-        $post = Post::find($id);
-        print_r($post->title);
-        return view('subjects.subjectedit')->with('post', $post);
-    }
+    // public function edit($id) {
+    //     $post = Post::find($id);
+    //     print_r($post->title);
+    //     return view('subjects.subjectedit')->with('post', $post);
+    // }
 
-    public function update($id) {
-        $post = Post::find($id);
+    // public function update($id) {
+    //     $post = Post::find($id);
 
-        $post->title = request('title');
-        $post->content = request('content');
+    //     $post->title = request('title');
+    //     $post->content = request('content');
         
 
-        $post->save();
+    //     $post->save();
 
-        return redirect('subjects/' . $post->id);
-    }
+    //     return redirect('subjects/' . $post->id);
+    // }
 }

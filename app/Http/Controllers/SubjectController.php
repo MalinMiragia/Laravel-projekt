@@ -36,7 +36,7 @@ class SubjectController extends Controller
 
     public function create()     {
 
-        return view('subjects.createsubject');
+        return view('subjects.createsubject');    
     }
 
     public function store() {
@@ -44,8 +44,8 @@ class SubjectController extends Controller
         $subject = new Subject();
         $subject->user_id = Auth::user()->id;
         $subject->subject_title = request('subject_title');
-        //tags här bara inte tillagda än
         $subject->subject_name = request('subject_name');
+        $subject->tags()->attach(request('tags'));
         
 
         $subject->save();

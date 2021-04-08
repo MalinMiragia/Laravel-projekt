@@ -10,4 +10,11 @@ class Tag extends Model
         {
             return $this->belongsToMany(Subject::class);
         }
+
+        protected $fillable = [
+
+            'tag_name',
+
+        ];
+
 }

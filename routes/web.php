@@ -23,24 +23,28 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/posts', 'PostController@index');
-Route::get('/subjects/{id}', 'PostController@create')->middleware('auth');
-Route::post('/subjects', 'PostController@store')->middleware('auth');
-Route::get('/subjects/{id}', 'PostController@show');
+Route::get('/subjects', 'SubjectController@index');
+Route::get('/subjects/createsubject', 'SubjectController@create')->middleware('auth');
+Route::post('/subjects', 'SubjectController@store')->middleware('auth');
+Route::get('/subjects/{id}', 'SubjectController@show');
+Route::delete('/subjects/{id}', 'SubjectController@destroy')->middleware('auth');
+Route::get('/subjects/{id}/editsubject', 'SubjectController@edit')->middleware('auth');
+Route::put('/subjects/{id}', 'SubjectController@update')->middleware('auth');
+
+
+
+// Route::get('/posts', 'PostController@index');
+Route::get('/subjects/post/showsubject', 'PostController@create')->middleware('auth');
+Route::post('/subjects/post', 'PostController@store')->name('savepost')->middleware('auth');
+Route::get('/subjects/post/{id}', 'PostController@show');
 // Route::delete('/subjects/{id}', 'PostController@destroy')->middleware('auth');
 // Route::get('/subjects/editsubject/{id}', 'PostController@edit')->middleware('auth');
-Route::post('/subject/{id}', 'PostController@update')->middleware('auth');
+// Route::post('/subject/{id}', 'PostController@update')->middleware('auth');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
 
-Route::get('/subjects', 'SubjectController@index');
-Route::get('/subjects/createsubject', 'SubjectController@create')->middleware('auth');
-Route::post('/subjects', 'SubjectController@store')->middleware('auth');
-Route::get('/subject/{id}', 'SubjectController@show');
-Route::delete('/subjects/{id}', 'SubjectController@destroy')->middleware('auth');
-Route::get('/subjects/editsubject/{id}', 'SubjectController@edit')->middleware('auth');
-Route::post('/subjects/{id}', 'SubjectController@update')->middleware('auth');
+
 
 //Route::get('/subjects', 'UserController@index');
 
