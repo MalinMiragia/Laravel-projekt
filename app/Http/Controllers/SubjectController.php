@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\Post;
-use APP\User;
-use APP\Tag;
+use App\User;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 
 class SubjectController extends Controller
@@ -14,7 +14,7 @@ class SubjectController extends Controller
     public function index() {
 
         if(request('tag')) {
-            $subjects = Tag::where('name', request('tag'))->firstOrFail()->subjects;
+            $subjects = Tag::where('name_tag', request('tag'))->firstOrFail()->subjects;
         }else {
             $subjects = Subject::latest()->get();
         }
@@ -35,8 +35,12 @@ class SubjectController extends Controller
     }
 
     public function create()     {
+        $tags = Tag::all();
+        
 
-        return view('subjects.createsubject');    
+
+
+         return view('subjects.createsubject',['tags'=>$tags]);    
     }
 
     public function store() {
@@ -45,7 +49,9 @@ class SubjectController extends Controller
         $subject->user_id = Auth::user()->id;
         $subject->subject_title = request('subject_title');
         $subject->subject_name = request('subject_name');
-        $subject->tags()->attach(request('tags'));
+        $tag_id = request('tags');
+        $subject->tag_id = $tag_id[0];
+        
         
 
         $subject->save();

@@ -19,6 +19,7 @@ class CreateSubjectsTable extends Migration
             $table->timestamps();
             $table->string('subject_title');
             $table->string('subject_name');
+            $table->integer('tag_id');
         });
     }
 

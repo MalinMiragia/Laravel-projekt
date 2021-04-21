@@ -27,6 +27,6 @@ class Subject extends Model
         }
 
         protected $fillable = [
-            'subject_title','subject_name', 'tag_name'
+            'subject_title','subject_name', 'name_tag'
         ];
 }

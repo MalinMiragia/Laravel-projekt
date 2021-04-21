@@ -31,6 +31,12 @@ Route::delete('/subjects/{id}', 'SubjectController@destroy')->middleware('auth')
 Route::get('/subjects/{id}/editsubject', 'SubjectController@edit')->middleware('auth');
 Route::put('/subjects/{id}', 'SubjectController@update')->middleware('auth');
 
+Route::get('/tags/createtag', 'TagController@create');
+Route::post('/tags', 'TagController@store');
+Route::get('/tags/{id}', 'TagController@show');
+Route::get('/tags', 'TagController@index');
+
+
 
 
 // Route::get('/posts', 'PostController@index');

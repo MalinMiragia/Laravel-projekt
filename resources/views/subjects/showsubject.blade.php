@@ -24,11 +24,15 @@
 
             <p class="card-text">{{ $subject->user->user_name }} </p>
 
-            @foreach ($subject->tags as $tag)
+            {{-- @foreach ($subject->tags as $tag)
 
               <a href="/subjects?tag={{ $tag->tag_name }}">{{ $tag->tag_name }}</a> 
 
-            @endforeach
+            
+
+            @endforeach --}}
+
+            <? print_r($subject) ?>
               <p class="card-text"><small class="text-muted">{{ $subject->user->user_name }} created at{{ $subject->created_at }}</small></p>
 
               @can ('update-subject', $subject)

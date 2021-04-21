@@ -16,7 +16,7 @@
 
         <div class="field">
 
-            <label class="label" for="tag_name">Tags</label>
+            <label class="label" for="name_tag">Tags</label>
 
                 <div class="control">
 
@@ -27,9 +27,9 @@
             
                         @foreach ($tags as $tag)
 
-                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                            <option value="{{ $tag->id }}">{{ $tag->name_tag }}</option>
 
-                        @endforeach
+                        @endforeach 
 
                     </select>
 
